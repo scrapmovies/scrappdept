@@ -22,12 +22,12 @@ class PostingService:
 
 class PostingServiceFactory:
     @classmethod
-    def build_for_zonaprop(
+    def build_for_gnula(
         cls,
         pages: int,
         full_url: str
     ) -> PostingService:
-        scrapper_service = ScraperServiceFactory.build_for_zonaprop(
+        scrapper_service = ScraperServiceFactory.build_for_gnula(
             pages=pages,
             full_url=full_url,
         )

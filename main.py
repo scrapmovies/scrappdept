@@ -21,8 +21,8 @@ class Config(BaseModel):
     bot_token: str
     chat_room: str
     persist: Optional[bool] = False
-    zonaprop_base_url: Optional[str] = None
-    zonaprop_full_url: Optional[str] = None
+    gnula_base_url: Optional[str] = None
+    gnula_full_url: Optional[str] = None
     argenprop_full_url: Optional[str] = None
     mercadolibre_full_url: Optional[str] = None
     la_voz_full_url: Optional[str] = None
@@ -53,12 +53,12 @@ def main(config_path: str):
 
     while(True):
         # SCRAP POSTINGS
-        if config.zonaprop_full_url:
-            zonaprop_posting_service = PostingServiceFactory.build_for_zonaprop(
+        if config.gnula_full_url:
+            gnula_posting_service = PostingServiceFactory.build_for_gnula(
                 pages=config.pages,
-                full_url=config.zonaprop_full_url,
+                full_url=config.gnula_full_url,
             )
-            zonaprop_posting_service.scrap_and_create_postings()
+            gnula_posting_service.scrap_and_create_postings()
 
         if config.argenprop_full_url:
             argenprop_posting_service = PostingServiceFactory.build_for_argenprop(

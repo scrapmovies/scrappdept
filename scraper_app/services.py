@@ -8,7 +8,7 @@ from .gateways import (
     LaVozGateway,
     MercadolibreGateway,
     ProperatiGateway,
-    ZonapropGateway,
+    GnulaGateway,
 )
 from .parsers import (
     ArgenpropParser,
@@ -16,7 +16,7 @@ from .parsers import (
     LaVozParser,
     MercadolibreParser,
     ProperatiParser,
-    ZonapropParser,
+    GnulaParser,
 )
 from posting_app.database import Posting
 
@@ -57,7 +57,7 @@ class ScraperService:
 
 class ScraperServiceFactory:
     @classmethod
-    def build_for_zonaprop(
+    def build_for_gnula(
         cls,
         pages: int,
         full_url: str
@@ -65,8 +65,8 @@ class ScraperServiceFactory:
         return ScraperService(
             pages=pages,
             url=full_url,
-            gateway=ZonapropGateway(),
-            parser=ZonapropParser(),
+            gateway=GnulaGateway(),
+            parser=GnulaParser(),
         )
 
     @classmethod

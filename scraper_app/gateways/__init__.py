@@ -1,5 +1,5 @@
 from .base import BaseGateway
-from .zonaprop import ZonapropGateway
+from .gnula import GnulaGateway
 from .argenprop import ArgenpropGateway
 from .mercadolibre import MercadolibreGateway
 from .lavoz import LaVozGateway
