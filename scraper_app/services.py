@@ -3,19 +3,11 @@ from typing import Optional, List
 from rich.console import Console
 
 from .gateways import (
-    ArgenpropGateway,
     BaseGateway,
-    LaVozGateway,
-    MercadolibreGateway,
-    ProperatiGateway,
     GnulaGateway,
 )
 from .parsers import (
-    ArgenpropParser,
     BaseParser,
-    LaVozParser,
-    MercadolibreParser,
-    ProperatiParser,
     GnulaParser,
 )
 from posting_app.database import Posting
@@ -69,54 +61,4 @@ class ScraperServiceFactory:
             parser=GnulaParser(),
         )
 
-    @classmethod
-    def build_for_argenprop(
-        cls,
-        pages: int,
-        full_url: str
-    ) -> ScraperService:
-        return ScraperService(
-            pages=pages,
-            url=full_url,
-            gateway=ArgenpropGateway(),
-            parser=ArgenpropParser(),
-        )
-
-    @classmethod
-    def build_for_mercadolibre(
-        cls,
-        pages: int,
-        full_url: str
-    ) -> ScraperService:
-        return ScraperService(
-            pages=pages,
-            url=full_url,
-            gateway=MercadolibreGateway(),
-            parser=MercadolibreParser(),
-        )
-
-    @classmethod
-    def build_for_la_voz(
-        cls,
-        pages: int,
-        full_url: str
-    ) -> ScraperService:
-        return ScraperService(
-            pages=pages,
-            url=full_url,
-            gateway=LaVozGateway(),
-            parser=LaVozParser(),
-        )
-
-    @classmethod
-    def build_for_properati(
-        cls,
-        pages: int,
-        full_url: str
-    ) -> ScraperService:
-        return ScraperService(
-            pages=pages,
-            url=full_url,
-            gateway=ProperatiGateway(),
-            parser=ProperatiParser(),
-        )
+    
